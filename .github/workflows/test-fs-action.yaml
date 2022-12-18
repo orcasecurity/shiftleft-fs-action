@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  iac_scan_job:
+  fs_scan_job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

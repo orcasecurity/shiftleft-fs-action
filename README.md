@@ -89,7 +89,7 @@ push:
     - main
 
 jobs:
-  orca-iac_scan:
+  orca-fs_scan:
     name: Orca FS Scan
     runs-on: ubuntu-latest
     env:
@@ -111,7 +111,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         if: always()
         with:
-          sarif_file: results/iac.sarif
+          sarif_file: results/fs.sarif
 ```
 
 The results list can be found on the security tab of your GitHub project and should look like the following image

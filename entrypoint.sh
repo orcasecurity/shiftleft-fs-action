@@ -8,7 +8,7 @@ exit_with_err() {
 
 function run_orca_fs_scan() {
   cd "${GITHUB_WORKSPACE}" || exit_with_err "could not find GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
-  echo "Running Orca IaC scan:"
+  echo "Running Orca FS scan:"
   echo orca-cli "${GLOBAL_FLAGS[@]}" fs scan "${SCAN_FLAGS[@]}"
   orca-cli "${GLOBAL_FLAGS[@]}" fs scan "${SCAN_FLAGS[@]}"
   export ORCA_EXIT_CODE=$?
@@ -121,7 +121,7 @@ annotate() {
     exit "${ORCA_EXIT_CODE}"
   fi
   mkdir -p "/app/${OUTPUT_FOR_JSON}"
-  cp "${OUTPUT_FOR_JSON}/iac.json" "/app/${OUTPUT_FOR_JSON}/"
+  cp "${OUTPUT_FOR_JSON}/fs.json" "/app/${OUTPUT_FOR_JSON}/"
   cd /app || exit_with_err "error during annotations initiation"
   npm run build --if-present
   node dist/index.js

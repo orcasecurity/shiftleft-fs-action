@@ -1,0 +1,83 @@
+name: "Orca FS Scan"
+description: "Configures Orca CLI to run FS security scan on your code"
+branding:
+  icon: "shield"
+  color: "green"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    WORKSPACE_PATH: $GITHUB_WORKSPACE
+
+inputs:
+  api_token:
+    description: "Orca API Token used for Authentication"
+    required: true
+  exit_code:
+    description: "Exit code for failed execution due to policy violations"
+    required: false
+  no_color:
+    description: "Disable color output"
+    required: false
+    default: "false"
+  project_key:
+    description: "Project Key name"
+    required: true
+  silent:
+    description: "Disable logs and warnings output"
+    required: false
+    default: "false"
+  baseline_context_key:
+    description: "Use this context key in case of no autodetect is configured on project"
+    required: false
+  disable_baseline:
+    description: "Do not compare to baseline on this scan"
+    required: false
+    default: "false"
+  sync_baseline:
+    description: "Sync baseline base on this flag"
+    required: false
+  disable_err_report:
+    description: "Suppress error reporting to the monitoring platform"
+    required: false
+    default: "false"
+  disable_secret:
+    description: "Disables the secret detection scanning"
+    required: false
+    default: "false"
+  hide_vulnerabilities:
+    description: "Do not show detailed view of the vulnerabilities findings"
+    required: false
+    default: "false"
+  num_cpu:
+    description: "Number of logical CPUs to be used for secret scanning (default 10)"
+    required: false
+  path:
+    description: "Paths or directories to scan (comma-separated)"
+    required: true
+  exceptions-filepath:
+    description: "exceptions YAML filepath. (File should be mounted)"
+    required: false
+  format:
+    description: "Format for displaying the results"
+    required: false
+  output:
+    description: "Output directory"
+    required: false
+  timeout:
+    description: 'Set the maximum duration for the CLI execution. valid time units ("s", "m", "h")'
+    required: false
+  show_failed_issues_only:
+    description: "Show only failed issues in CLI results"
+    required: false
+    default: "false"
+  console_output:
+    description: "Prints results to console in the provided format (only when --output is provided)"
+    required: false
+  config:
+    description: "path to configuration file (json, yaml or toml)"
+    required: false
+  show_annotations:
+    description: "show github annotations on pull requests"
+    required: false
+    default: "true"

@@ -1,0 +1,26 @@
+{
+  "name": "shiftleft-fs-action",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build src/main.js",
+    "format": "prettier --write **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orcasecurity/shiftleft-fs-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/orcasecurity/shiftleft-fs-action/issues"
+  },
+  "homepage": "https://github.com/orcasecurity/shiftleft-fs-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.9.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.34.0",
+    "prettier": "^2.7.1"
+  }
+}

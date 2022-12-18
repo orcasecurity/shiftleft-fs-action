@@ -1,29 +1,19 @@
 const core = require("@actions/core");
 
-function getDetail(controlResults, file) {
-    let details = controlResults.control["details"];
-    let recommendation = file["expected_value"];
-    if (recommendation) {
-        details = `${details}\n\nRecommendation:\n${recommendation}`
-    }
-    return details
-}
 
 function extractAnnotations(results) {
     let annotations = [];
-    for (const controlResults of results.results) {
+    for (const controlResults of results.secret_detection.results) {
         for (const finding of controlResults.findings) {
-            for (const file of finding.files) {
-                annotations.push({
-                    file: file["file_name"],
-                    startLine: file["line"],
-                    endLine: file["line"],
-                    priority: controlResults["priority"],
-                    status: controlResults["status"],
-                    title: controlResults.control["title"],
-                    details: getDetail(controlResults, file),
-                });
-            }
+            annotations.push({
+                file: finding["file_name"],
+                startLine: finding["start_line"],
+                endLine: finding["end_line"],
+                priority: controlResults["priority"],
+                status: controlResults["status"],
+                title: controlResults.catalog_control["title"],
+                details: controlResults.catalog_control["title"],
+            });
         }
     }
     return annotations;

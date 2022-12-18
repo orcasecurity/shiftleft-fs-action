@@ -1,5 +1,10 @@
 const core = require("@actions/core");
 
+function getDetail(controlResults, file) {
+    let title = controlResults.catalog_control["title"];
+    let details = `Recommendation: Secret was detected on rule: ${title}`
+    return details
+}
 
 function extractAnnotations(results) {
     let annotations = [];
@@ -12,7 +17,7 @@ function extractAnnotations(results) {
                 priority: controlResults["priority"],
                 status: controlResults["status"],
                 title: controlResults.catalog_control["title"],
-                details: controlResults.catalog_control["title"],
+                details: getDetail(controlResults, finding),
             });
         }
     }

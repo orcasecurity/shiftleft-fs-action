@@ -2,6 +2,7 @@ name: Test Orca FS action
 
 on:
   workflow_dispatch:
+  pull_request:
 
 jobs:
   fs_scan_job:

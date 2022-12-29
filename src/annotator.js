@@ -8,7 +8,7 @@ function getDetail(controlResults, file) {
 
 function extractAnnotations(results) {
     let annotations = [];
-    console.log(results.secret_detection)
+    console.log(results["secret_detection"])
     for (const controlResults of results.secret_detection.results) {
             console.log("control result is:")
             console.log(controlResults)

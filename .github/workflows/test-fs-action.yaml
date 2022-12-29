@@ -20,10 +20,10 @@ jobs:
           format:
             "json"
           output:
-            "results/"
+            "results/file_system.json"
           console_output: "table"
       - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: orca-results
-          path: results/
+          path: results/file_system.json

@@ -17,7 +17,7 @@ function setWorkflowStatus(statusCode) {
 
 function main() {
   console.log("Processing Orca Shift-Left scan results...");
-  const jsonOutput = filepath.join(process.env.OUTPUT_FOR_JSON, "fs.json");
+  const jsonOutput = filepath.join(process.env.OUTPUT_FOR_JSON, "file_system.json");
   try {
     const parsedResults = readJSON(jsonOutput);
     annotator.annotateChangesWithResults(parsedResults);

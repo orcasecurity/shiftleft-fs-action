@@ -27,4 +27,4 @@ jobs:
         if: always()
         with:
           name: orca-results
-          path: results/file_system.json
+          path: results/

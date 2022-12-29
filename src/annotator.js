@@ -9,7 +9,8 @@ function getDetail(controlResults, file) {
 function extractAnnotations(results) {
     let annotations = [];
     for (const controlResults of results.secret_detection.results) {
-        if  (typeof variable !== 'undefined'){
+            console.log("control result is:")
+            console.log(controlResults)
             for (const finding of controlResults.findings) {
                 annotations.push({
                     file: finding["file_name"],
@@ -21,7 +22,7 @@ function extractAnnotations(results) {
                     details: getDetail(controlResults, finding),
                 });
             }
-    }
+
     }
     return annotations;
 }

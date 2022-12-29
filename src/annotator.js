@@ -9,18 +9,18 @@ function getDetail(controlResults, file) {
 function extractAnnotations(results) {
     let annotations = [];
     for (const controlResults of results.secret_detection.results) {
-        if (controlResults){
-        for (const finding of controlResults.findings) {
-            annotations.push({
-                file: finding["file_name"],
-                startLine: finding["start_line"],
-                endLine: finding["end_line"],
-                priority: controlResults["priority"],
-                status: controlResults["status"],
-                title: controlResults.catalog_control["title"],
-                details: getDetail(controlResults, finding),
-            });
-        }
+        if  (typeof variable !== 'undefined'){
+            for (const finding of controlResults.findings) {
+                annotations.push({
+                    file: finding["file_name"],
+                    startLine: finding["start_line"],
+                    endLine: finding["end_line"],
+                    priority: controlResults["priority"],
+                    status: controlResults["status"],
+                    title: controlResults.catalog_control["title"],
+                    details: getDetail(controlResults, finding),
+                });
+            }
     }
     }
     return annotations;

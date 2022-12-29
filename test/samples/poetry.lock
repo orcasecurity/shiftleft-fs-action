@@ -9773,7 +9773,7 @@ social-auth-core = [
     {file = "social_auth_core-3.3.3-py3-none-any.whl", hash = "sha256:21c0639c56befd33ec162c2210d583bb1de8e1136d53b21bafb96afaf2f86c91"},
 ]
 sonar-parser = [
-    {file = "sonar-parser-1.0.20.tar.gz", hash = "sha256:f0e3cca892e1e52cc367ad0c64dde7ae8a4c0c057e578e9a6ed64f2378329966"},
+    {file = "sonar-parser-1.0.20.tar.gz",  hash = "sha256:f0e3cca892e1e52cc367ad0c64dde7ae8a4c0c057e578e9a6ed64f2378329966"},
     {file = "sonar_parser-1.0.20-cp38-cp38-linux_aarch64.whl", hash = "sha256:e3ea4fdaffb73d62323fe221216d4d85ed19d005f0415e07db1d8b8d72392170"},
     {file = "sonar_parser-1.0.20-cp38-cp38-linux_x86_64.whl", hash = "sha256:04145c9d6a5858367380b5cfb1dc212f945a5a2a1b426174720c0da7b6113036"},
     {file = "sonar_parser-1.0.20-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:f7ee79065ab9f46e7bccee1475d2119314239e5a6bf62a4ba63bfaf244acaf18"},

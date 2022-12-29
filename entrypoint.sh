@@ -99,7 +99,7 @@ function set_fs_scan_flags() {
     SCAN_FLAGS+=(--output "${OUTPUT_FOR_JSON}")
   fi
   if [ "${CONSOLE_OUTPUT_FOR_JSON}" ]; then
-    SCAN_FLAGS+=(--console-output "${CONSOLE_OUTPUT_FOR_JSON}")
+    SCAN_FLAGS+=(--console-output="${CONSOLE_OUTPUT_FOR_JSON}")
   fi
 }
 

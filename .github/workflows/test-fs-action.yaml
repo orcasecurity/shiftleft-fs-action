@@ -21,7 +21,7 @@ jobs:
           format:
             "json"
           output:
-            "results/file_system.json"
+            "results/"
           console_output: "table"
       - uses: actions/upload-artifact@v3
         if: always()

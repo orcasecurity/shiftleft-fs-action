@@ -31,11 +31,12 @@ function extract_secret_finding(controlResults, annotations) {
 function extract_vulnerability_finding(controlResults, annotations) {
     for (const finding of controlResults.vulnerabilities) {
         annotations.push({
+            // vulnerability does not return real path on github, so we need to concatenate path given by github
             file: process.env.INPUT_PATH+"/"+controlResults["target"],
-            // currently no start line and end line for vulnerabilities aviliable
+            // currently no start line and end line for vulnerabilities available
             startLine: 1,
             endLine: 1,
-            priority: controlResults["severity"],
+            priority: finding["severity"],
             status: finding.status_summary["status"],
             title: finding["vulnerability_id"],
             details: get_vuln_detail(controlResults, finding),
@@ -44,8 +45,6 @@ function extract_vulnerability_finding(controlResults, annotations) {
 }
 
 function extractAnnotations(results) {
-    console.log("\n\npath is:")
-    console.log(process.env.INPUT_PATH)
     let annotations = [];
     for (const controlResults of results.results.secret_detection.results) {
         extract_secret_finding(controlResults, annotations);

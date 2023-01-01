@@ -44,6 +44,8 @@ function extract_vulnerability_finding(controlResults, annotations) {
 }
 
 function extractAnnotations(results) {
+    console.log("\n\npath is:")
+    console.log(process.env.INPUT_PATH)
     let annotations = [];
     for (const controlResults of results.results.secret_detection.results) {
         extract_secret_finding(controlResults, annotations);

@@ -45,15 +45,12 @@ function extract_vulnerability_finding(controlResults, annotations) {
 
 function extractAnnotations(results) {
     let annotations = [];
-    console.log("\nextract result is :\n")
     console.log(results.vulnerabilities)
     for (const controlResults of results.results.secret_detection.results) {
-            console.log("control result is:")
             console.log(controlResults)
         extract_secret_finding(controlResults, annotations);
     }
     for (const controlResults of results.vulnerabilities) {
-            console.log("control result is:")
             console.log(controlResults)
         extract_vulnerability_finding(controlResults, annotations);
     }

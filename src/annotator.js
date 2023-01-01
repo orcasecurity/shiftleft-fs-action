@@ -9,6 +9,7 @@ function get_secret_detail(controlResults, file) {
 function get_vuln_detail(controlResults, finding) {
     let title = finding["vulnerability_id"]
     let fixed_version = finding["fixed_version"]
+    let pkg_name = finding["pkg_name"]
     let details = `Recommendation: Upgrade pkg to version: ${fixed_version}, to fix ${title} in ${pkg_name}`
     return details
 }

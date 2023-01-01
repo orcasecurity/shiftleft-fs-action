@@ -18,8 +18,8 @@ function extract_secret_finding(controlResults, annotations) {
     for (const finding of controlResults.findings) {
         annotations.push({
             file: finding["file_name"],
-            startLine: finding["start_line"],
-            endLine: finding["end_line"],
+            startLine: finding.position["start_line"],
+            endLine: finding.position["end_line"],
             priority: controlResults["priority"],
             status: controlResults["status"],
             title: controlResults.catalog_control["title"],
@@ -47,11 +47,9 @@ function extractAnnotations(results) {
     let annotations = [];
     console.log(results.vulnerabilities)
     for (const controlResults of results.results.secret_detection.results) {
-            console.log(controlResults)
         extract_secret_finding(controlResults, annotations);
     }
     for (const controlResults of results.vulnerabilities) {
-            console.log(controlResults)
         extract_vulnerability_finding(controlResults, annotations);
     }
     return annotations;

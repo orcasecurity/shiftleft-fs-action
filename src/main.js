@@ -18,10 +18,9 @@ function setWorkflowStatus(statusCode) {
 function main() {
   console.log("Processing Orca Shift-Left scan results...");
   const jsonOutput = filepath.join(process.env.OUTPUT_FOR_JSON, "file_system.json");
-  console.log(jsonOutput);
   try {
     const parsedResults = readJSON(jsonOutput);
-    console.log(parsedResults);
+    console.log("after parsed");
     annotator.annotateChangesWithResults(parsedResults);
     setWorkflowStatus(process.env.ORCA_EXIT_CODE);
   } catch (e) {

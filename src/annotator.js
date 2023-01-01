@@ -31,7 +31,7 @@ function extract_secret_finding(controlResults, annotations) {
 function extract_vulnerability_finding(controlResults, annotations) {
     for (const finding of controlResults.vulnerabilities) {
         annotations.push({
-            file: controlResults["target"],
+            file: process.env.INPUT_PATH+"/"+controlResults["target"],
             // currently no start line and end line for vulnerabilities aviliable
             startLine: 1,
             endLine: 1,

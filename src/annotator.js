@@ -23,7 +23,7 @@ function extract_finding(controlResults, annotations) {
 function extractAnnotations(results) {
     let annotations = [];
     console.log("\nextract result is :\n")
-    console.log(results)
+    console.log(results.results.vulnerabilities)
     for (const controlResults of results.results.secret_detection.results) {
             console.log("control result is:")
             console.log(controlResults)

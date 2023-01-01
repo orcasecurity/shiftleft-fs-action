@@ -35,7 +35,7 @@ function extract_vulnerability_finding(controlResults, annotations) {
             // currently no start line and end line for vulnerabilities aviliable
             startLine: 1,
             endLine: 1,
-            // priority: controlResults["priority"],
+            priority: controlResults["severity"],
             status: finding.status_summary["status"],
             title: finding["vulnerability_id"],
             details: get_vuln_detail(controlResults, finding),

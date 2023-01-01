@@ -20,7 +20,6 @@ function main() {
   const jsonOutput = filepath.join(process.env.OUTPUT_FOR_JSON, "file_system.json");
   try {
     const parsedResults = readJSON(jsonOutput);
-    console.log("after parsed");
     annotator.annotateChangesWithResults(parsedResults);
     setWorkflowStatus(process.env.ORCA_EXIT_CODE);
   } catch (e) {

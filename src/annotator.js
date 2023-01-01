@@ -6,6 +6,20 @@ function getDetail(controlResults, file) {
     return details
 }
 
+function extract_finding(controlResults, annotations) {
+    for (const finding of controlResults.findings) {
+        annotations.push({
+            file: finding["file_name"],
+            startLine: finding["start_line"],
+            endLine: finding["end_line"],
+            priority: controlResults["priority"],
+            status: controlResults["status"],
+            title: controlResults.catalog_control["title"],
+            details: getDetail(controlResults, finding),
+        });
+    }
+}
+
 function extractAnnotations(results) {
     let annotations = [];
     console.log("\nextract result is :\n")
@@ -13,18 +27,12 @@ function extractAnnotations(results) {
     for (const controlResults of results.results.secret_detection.results) {
             console.log("control result is:")
             console.log(controlResults)
-            for (const finding of controlResults.findings) {
-                annotations.push({
-                    file: finding["file_name"],
-                    startLine: finding["start_line"],
-                    endLine: finding["end_line"],
-                    priority: controlResults["priority"],
-                    status: controlResults["status"],
-                    title: controlResults.catalog_control["title"],
-                    details: getDetail(controlResults, finding),
-                });
-            }
-
+        extract_finding(controlResults, annotations);
+    }
+    for (const controlResults of results.results.vulnerabilities.results) {
+            console.log("control result is:")
+            console.log(controlResults)
+        extract_finding(controlResults, annotations);
     }
     return annotations;
 }

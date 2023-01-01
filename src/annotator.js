@@ -1,8 +1,15 @@
 const core = require("@actions/core");
 
-function getDetail(controlResults, file) {
+function get_secret_detail(controlResults, file) {
     let title = controlResults.catalog_control["title"];
     let details = `Recommendation: Secret was detected on rule: ${title}`
+    return details
+}
+
+function get_vuln_detail(controlResults, finding) {
+    let title = finding["vulnerability_id"]
+    let fixed_version = finding["fixed_version"]
+    let details = `Recommendation: Upgrade pkg to version: ${fixed_version}, to fix ${title} in ${pkg_name}`
     return details
 }
 
@@ -15,7 +22,7 @@ function extract_secret_finding(controlResults, annotations) {
             priority: controlResults["priority"],
             status: controlResults["status"],
             title: controlResults.catalog_control["title"],
-            details: getDetail(controlResults, finding),
+            details: get_secret_detail(controlResults, finding),
         });
     }
 }
@@ -28,9 +35,9 @@ function extract_vulnerability_finding(controlResults, annotations) {
             startLine: 1,
             endLine: 1,
             // priority: controlResults["priority"],
-            status: controlResults.status_summary["status"],
+            status: finding.status_summary["status"],
             title: finding["vulnerability_id"],
-            details: getDetail(controlResults, finding),
+            details: get_vuln_detail(controlResults, finding),
         });
     }
 }

@@ -6,7 +6,7 @@ function getDetail(controlResults, file) {
     return details
 }
 
-function extract_finding(controlResults, annotations) {
+function extract_secret_finding(controlResults, annotations) {
     for (const finding of controlResults.findings) {
         annotations.push({
             file: finding["file_name"],
@@ -20,19 +20,34 @@ function extract_finding(controlResults, annotations) {
     }
 }
 
+function extract_vulnerability_finding(controlResults, annotations) {
+    for (const finding of controlResults.vulnerabilities) {
+        annotations.push({
+            file: controlResults["target"],
+            // currently no start line and end line for vulnerabilities aviliable
+            startLine: 1,
+            endLine: 1,
+            // priority: controlResults["priority"],
+            status: controlResults.status_summary["status"],
+            title: finding["vulnerability_id"],
+            details: getDetail(controlResults, finding),
+        });
+    }
+}
+
 function extractAnnotations(results) {
     let annotations = [];
     console.log("\nextract result is :\n")
-    console.log(results.results.vulnerabilities)
+    console.log(results.vulnerabilities)
     for (const controlResults of results.results.secret_detection.results) {
             console.log("control result is:")
             console.log(controlResults)
-        extract_finding(controlResults, annotations);
+        extract_secret_finding(controlResults, annotations);
     }
-    for (const controlResults of results.results.vulnerabilities.results) {
+    for (const controlResults of results.vulnerabilities) {
             console.log("control result is:")
             console.log(controlResults)
-        extract_finding(controlResults, annotations);
+        extract_vulnerability_finding(controlResults, annotations);
     }
     return annotations;
 }

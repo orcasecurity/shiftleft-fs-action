@@ -119,7 +119,9 @@ jobs:
 ```
 
 The results list can be found on the security tab of your GitHub project and should look like the following image
+![](/assets/code_scanning_list.png)
 
 
 An entry should describe the error and in which line it occurred 
+![](/assets/code_scanning_entry.png)
 

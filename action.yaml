@@ -61,6 +61,7 @@ inputs:
   format:
     description: "Format for displaying the results"
     required: false
+    default: "table"
   output:
     description: "Output directory"
     required: false
@@ -74,6 +75,7 @@ inputs:
   console_output:
     description: "Prints results to console in the provided format (only when --output is provided)"
     required: false
+    default: "table"
   config:
     description: "path to configuration file (json, yaml or toml)"
     required: false

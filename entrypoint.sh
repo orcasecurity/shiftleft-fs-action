@@ -77,7 +77,7 @@ function set_fs_scan_flags() {
   if [ "${INPUT_PATH}" ]; then
     SCAN_FLAGS+=("${INPUT_PATH}")
   fi
-  if [ "${DISABLE_SECRET}" = "true" ]; then
+  if [ "${INPUT_DISABLE_SECRET}" = "true" ]; then
     SCAN_FLAGS+=(--disable-secret)
   fi
   if [ "${INPUT_EXCEPTIONS_FILEPATHS}" ]; then
@@ -86,11 +86,11 @@ function set_fs_scan_flags() {
   if [ "${INPUT_SHOW_FAILED_ISSUES_ONLY}" = "true" ]; then
     SCAN_FLAGS+=(--show-failed-issues-only)
   fi
-  if [ "${HIDE_VULNERABILITIES}" = "true" ]; then
+  if [ "${INPUT_HIDE_VULNERABILITIES}" = "true" ]; then
     SCAN_FLAGS+=(--hide-vulnerabilities)
   fi
-  if [ "${NUM_CPU}" ]; then
-    SCAN_FLAGS+=(--num-cpu "${NUM_CPU}")
+  if [ "${INPUT_NUM_CPU}" ]; then
+    SCAN_FLAGS+=(--num-cpu "${INPUT_NUM_CPU}")
   fi
   if [ "${FORMATS_FOR_JSON}" ]; then
     SCAN_FLAGS+=(--format "${FORMATS_FOR_JSON}")

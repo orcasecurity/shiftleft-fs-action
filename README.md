@@ -96,6 +96,8 @@ jobs:
   orca-fs_scan:
     name: Orca FS Scan
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
     env:
       PROJECT_KEY: <project key> # Set the desired project to run the cli scanning with
     steps:

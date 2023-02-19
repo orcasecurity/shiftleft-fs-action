@@ -75,7 +75,7 @@ jobs:
 ## Annotations
 After scanning, the action will add the results as annotations in a pull request:
 
-![](/assets/annotations_preview.png)
+![](/assets/secret_annotation_preview.png)
 >  **NOTE:**  Annotations can be disabled by setting the "show_annotation" input to "false"
 
 
@@ -115,7 +115,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         if: always()
         with:
-          sarif_file: results/fs.sarif
+          sarif_file: results/file_system.sarif
 ```
 
 The results list can be found on the security tab of your GitHub project and should look like the following image

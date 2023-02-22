@@ -2,7 +2,6 @@ name: Test Orca FS action - Sarif
 
 on:
   workflow_dispatch:
-  pull_request:
 
 jobs:
   fs_scan_job:

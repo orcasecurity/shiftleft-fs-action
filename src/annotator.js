@@ -35,8 +35,7 @@ function extractSecretFinding(secretResults, annotations) {
 function extractVulnerability(results, annotations) {
     for (const vulnerability of results.vulnerabilities) {
         annotations.push({
-            // vulnerability does not return real path on github, so we need to concatenate path given by github
-            file: `${process.env.INPUT_PATH}/${results["target"]}`,
+            file: results["target"],
             // currently no start line and end line for vulnerabilities available
             startLine: 1,
             endLine: 1,

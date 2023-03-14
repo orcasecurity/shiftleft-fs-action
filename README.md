@@ -62,14 +62,14 @@ jobs:
 | exit_code               | 10                                         | Exit code for failed execution due to policy violations                           | Integer | No       | 3       |
 | control_timeout         | 30                                         | Number of seconds the control has to execute before being canceled                | Integer | No       | 60      |
 | silent                  | false                                      | Disable logs and warnings output                                                  | Boolean | No       | false   |
-| console-output          | json                                       | Prints results to console in the provided format (only when --output is provided) | String  | No       | cli     |
+| console_output          | json                                       | Prints results to console in the provided format (only when --output is provided) | String  | No       | cli     |
 | config                  | config.json                                | path to configuration file (json, yaml or toml)                                   | String  | No       | N/A     |
 | show_annotations        | true                                       | show github annotations on pull requests                                          | Boolean | No       | true    |
-| disable-secret          | true                                       | Disables the secret detection scanning                                            | Boolean | No       | false   |
-| exceptions-filepath     | n/a                                        | exceptions YAML filepath. (File should be mounted)                                | String  | No       | false   |
-| hide-vulnerabilities    | n/a                                        | do not show detailed view of the vulnerabilities findings                         | Boolean | No       | false   |
-| num-cpu                 | 10                                         | Number of logical CPUs to be used for secret scanning (default 10)                | Integer | No       | 10      |
-| show-failed-issues-only | n/a                                        | show only failed issues                                                           | Boolean | No       | false   |
+| disable_secret          | true                                       | Disables the secret detection scanning                                            | Boolean | No       | false   |
+| exceptions_filepath     | n/a                                        | exceptions YAML filepath. (File should be mounted)                                | String  | No       | false   |
+| hide_vulnerabilities    | n/a                                        | do not show detailed view of the vulnerabilities findings                         | Boolean | No       | false   |
+| num_cpu                 | 10                                         | Number of logical CPUs to be used for secret scanning (default 10)                | Integer | No       | 10      |
+| show_failed_issues_only | n/a                                        | show only failed issues                                                           | Boolean | No       | false   |
 
 
 ## Annotations

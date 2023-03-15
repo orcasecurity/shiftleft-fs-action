@@ -57,7 +57,7 @@ jobs:
 | project_key             | my-project-key                             | Project Key name                                                                  | String  | Yes      | N/A     |
 | path                    | terraform,sub-dir,other-sub-dir/Dockerfile | Paths or directories to scan (comma-separated)                                    | String  | Yes      | N/A     |
 | format                  | json                                       | Format for displaying the results                                                 | String  | No       | cli     |
-| output                  | results/                                   | Output directory                                                                  | String  | No       | results/|
+| output                  | results/                                   | Output directory for scan results                                                  | String  | No       | N/A     |
 | no_color                | false                                      | Disable color output                                                              | Boolean | No       | false   |
 | exit_code               | 10                                         | Exit code for failed execution due to policy violations                           | Integer | No       | 3       |
 | control_timeout         | 30                                         | Number of seconds the control has to execute before being canceled                | Integer | No       | 60      |

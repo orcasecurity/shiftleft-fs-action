@@ -55,7 +55,7 @@ jobs:
 |-------------------------|--------------------------------------------|-----------------------------------------------------------------------------------|---------|----------|---------|
 | api_token               |                                            | Orca API Token used for Authentication                                            | String  | Yes      | N/A     |
 | project_key             | my-project-key                             | Project Key name                                                                  | String  | Yes      | N/A     |
-| path                    | terraform,sub-dir,other-sub-dir/Dockerfile | Paths or directories to scan (comma-separated)                                    | String  | Yes      | N/A     |
+| path                    | sub-dir                                    | Path to scan                                                                      | String  | Yes      | N/A     |
 | format                  | json                                       | Format for displaying the results                                                 | String  | No       | cli     |
 | output                  | results/                                   | Output directory for scan results                                                  | String  | No       | N/A     |
 | no_color                | false                                      | Disable color output                                                              | Boolean | No       | false   |

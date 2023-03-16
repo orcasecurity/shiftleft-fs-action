@@ -45,8 +45,8 @@ jobs:
           api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
           project_key: ${{ env.PROJECT_KEY }}
           path:
-            # scanning directories: ./terraform/ ./sub-dir/ and a file: ./Dockerfile
-            "terraform,sub-dir,other-sub-dir/Dockerfile"
+            # scanning the entire repository
+            "."
 ```
 
 ### Inputs

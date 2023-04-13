@@ -55,8 +55,8 @@ inputs:
   path:
     description: "Paths or directories to scan (comma-separated)"
     required: true
-  exceptions-filepath:
-    description: "exceptions YAML filepath. (File should be mounted)"
+  exceptions_filepath:
+    description: "exceptions YAML filepath."
     required: false
   format:
     description: "Format for displaying the results"

@@ -80,8 +80,8 @@ function set_fs_scan_flags() {
   if [ "${INPUT_DISABLE_SECRET}" = "true" ]; then
     SCAN_FLAGS+=(--disable-secret)
   fi
-  if [ "${INPUT_EXCEPTIONS_FILEPATHS}" ]; then
-    SCAN_FLAGS+=(--exceptions-filepath "${INPUT_EXCEPTIONS_FILEPATHS}")
+  if [ "${INPUT_EXCEPTIONS_FILEPATH}" ]; then
+    SCAN_FLAGS+=(--exceptions-filepath "${INPUT_EXCEPTIONS_FILEPATH}")
   fi
   if [ "${INPUT_SHOW_FAILED_ISSUES_ONLY}" = "true" ]; then
     SCAN_FLAGS+=(--show-failed-issues-only)

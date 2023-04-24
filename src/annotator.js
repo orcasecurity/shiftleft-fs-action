@@ -1,21 +1,48 @@
 const core = require("@actions/core");
 
 function getSecretDetails(secretResults) {
-    let title = secretResults.catalog_control["title"];
-    return `${title} secret was found`
+    let details = secretResults.catalog_control["details"];
+    if (details) {
+        return wrapWords(details);
+    }
+    return `${secretResults.catalog_control["title"]} secret was found`
+}
+
+function wrapWords(input, maxLineLength = 80) {
+    const words = input.split(/\s+/);
+    const lines = [];
+    let currentLine = '';
+
+    for (let i = 0; i < words.length; i++) {
+        const word = words[i];
+        if (currentLine.length + word.length > maxLineLength) {
+            lines.push(currentLine.trim());
+            currentLine = '';
+        }
+        currentLine += (currentLine ? ' ' : '') + word;
+    }
+
+    if (currentLine) {
+        lines.push(currentLine.trim());
+    }
+
+    return lines.join('\n');
 }
 
 function getVulnDetails(vulnerability) {
-    let scoreMessage = '';
+    let description = [`Severity: ${vulnerability.severity}`]
     if (vulnerability.cvss_v2_score) {
-        scoreMessage += `CVSS2 Score: ${vulnerability.cvss_v2_score}\n`;
+        description.push(`CVSS2 Score: ${vulnerability.cvss_v2_score}`);
     }
     if (vulnerability.cvss_v3_score) {
-        scoreMessage += `CVSS3 Score: ${vulnerability.cvss_v3_score}\n`;
+        description.push(`CVSS3 Score: ${vulnerability.cvss_v3_score}`);
     }
-    let fixed = vulnerability["fixed_version"]
-    let installed = vulnerability["installed_version"]
-    return `Severity: ${vulnerability.severity}\n${scoreMessage}Installed version: ${installed}\nFixed version:${fixed}`
+    description.push(`Installed version: ${vulnerability["installed_version"]}`);
+    let fixedVersion = vulnerability["fixed_version"]
+    if (fixedVersion) {
+        description.push(`Fixed version: ${fixedVersion}`);
+    }
+    return description.join("\n")
 }
 
 function extractSecretFinding(secretResults, annotations) {

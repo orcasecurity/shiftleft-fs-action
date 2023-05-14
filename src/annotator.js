@@ -30,7 +30,7 @@ function wrapWords(input, maxLineLength = 80) {
 }
 
 function getVulnDetails(vulnerability) {
-    let description = [`CVE Severity: ${vulnerability.severity}`]
+    let description = [`Severity: ${vulnerability.severity}`]
     if (vulnerability.cvss_v2_score) {
         description.push(`CVSS2 Score: ${vulnerability.cvss_v2_score}`);
     }

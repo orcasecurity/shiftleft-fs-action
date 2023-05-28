@@ -2,10 +2,12 @@ const core = require("@actions/core");
 
 function getSecretDetails(secretResults) {
     let details = secretResults.catalog_control["details"];
+    let recommendation = "Recommendation:\nrecomended to delete this secret or/and routet it"
+    let message = `Details:\n${secretResults.catalog_control["title"]} secret was found`
     if (details) {
-        return wrapWords(details);
+         message = `Details:\n${wrapWords(details)}\n`;
     }
-    return `${secretResults.catalog_control["title"]} secret was found`
+    return `${message}\n${recommendation}`
 }
 
 function wrapWords(input, maxLineLength = 80) {

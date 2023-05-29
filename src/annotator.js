@@ -1,11 +1,10 @@
 const core = require("@actions/core");
 
-function getSecretDetails(secretResults) {
-    let details = secretResults.catalog_control["details"];
-    if (details) {
-        return wrapWords(details);
-    }
-    return `${secretResults.catalog_control["title"]} secret was found`
+function getSecretDetails(secretResults) {   
+    let details = secretResults.catalog_control["details"] || `${secretResults.catalog_control["title"]} secret was found`;
+    let recommendation = `Take immediate action to mitigate the risk of the identified hard-coded secret by locating 
+    where it is used, revoking it, and ensuring it is update in all dependent systems.`;
+    return `Details:\n${wrapWords(details)}\n\nRecommendation:ֿ\n${wrapWords(recommendation)}`;
 }
 
 function wrapWords(input, maxLineLength = 80) {

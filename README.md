@@ -9,11 +9,14 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
 
 ## Table of Contents
 
-- [Usage](#usage)
+- [Orca Shift Left Security Action](#orca-shift-left-security-action)
+      - [More info can be found in the official Orca Shift Left Security documentation](#more-info-can-be-found-in-the-official-orca-shift-left-security-documentation)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
     - [Workflow](#workflow)
     - [Inputs](#inputs)
-- [Annotations](#annotations)
-- [Upload SARIF report](#upload-sarif-report)
+  - [Annotations](#annotations)
+  - [Upload SARIF report](#upload-sarif-report)
 
 
 ## Usage
@@ -21,16 +24,12 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
 ### Workflow
 
 ```yaml
-name: Sample Orca FS Scan Workflow
-on:
-  # Trigger the workflow on push request,
-  # but only for the main branch
-  push:
-    branches:
-      - main
+name: Sample Orca Secrets Scan Workflow
+  # Trigger the workflow on push and pull requests
+on: [push, pull_request]
 jobs:
-  orca-fs-scan:
-    name: Orca fs Scan
+  orca-secrets-scan:
+    name: Orca secrets Scan
     runs-on: ubuntu-latest
     env:
       PROJECT_KEY: <project key> # Set the desired project to run the cli scanning with
@@ -39,8 +38,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Run Orca FS Scan
-        uses: orcasecurity/shiftleft-fs-action@v1
+      - name: Run Orca Secrets Scan
+        uses: orcasecurity/shiftleft-secrets-action@v1
         with:
           api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
           project_key: ${{ env.PROJECT_KEY }}

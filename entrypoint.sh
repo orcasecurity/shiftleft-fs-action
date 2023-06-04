@@ -6,11 +6,11 @@ exit_with_err() {
   exit 1
 }
 
-function run_orca_fs_scan() {
+function run_orca_secrets_scan() {
   cd "${GITHUB_WORKSPACE}" || exit_with_err "could not find GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
-  echo "Running Orca FS scan:"
-  echo orca-cli "${GLOBAL_FLAGS[@]}" fs scan "${SCAN_FLAGS[@]}"
-  orca-cli "${GLOBAL_FLAGS[@]}" fs scan "${SCAN_FLAGS[@]}"
+  echo "Running Orca Secrets scan:"
+  echo orca-cli "${GLOBAL_FLAGS[@]}" secrets scan "${SCAN_FLAGS[@]}"
+  orca-cli "${GLOBAL_FLAGS[@]}" secrets scan "${SCAN_FLAGS[@]}"
   export ORCA_EXIT_CODE=$?
 }
 
@@ -72,13 +72,10 @@ function prepare_json_to_file_flags() {
   export OUTPUT_FOR_JSON CONSOLE_OUTPUT_FOR_JSON FORMATS_FOR_JSON
 }
 
-function set_fs_scan_flags() {
+function set_secrets_scan_flags() {
   SCAN_FLAGS=()
   if [ "${INPUT_PATH}" ]; then
-    SCAN_FLAGS+=("${INPUT_PATH}")
-  fi
-  if [ "${INPUT_DISABLE_SECRET}" = "true" ]; then
-    SCAN_FLAGS+=(--disable-secret)
+    SCAN_FLAGS+=("--path ${INPUT_PATH}")
   fi
   if [ "${INPUT_EXCEPTIONS_FILEPATH}" ]; then
     SCAN_FLAGS+=(--exceptions-filepath "${INPUT_EXCEPTIONS_FILEPATH}")
@@ -100,6 +97,18 @@ function set_fs_scan_flags() {
   fi
   if [ "${CONSOLE_OUTPUT_FOR_JSON}" ]; then
     SCAN_FLAGS+=(--console-output="${CONSOLE_OUTPUT_FOR_JSON}")
+  fi
+  if [ "${SINCE_COMMIT}" ]; then
+    SCAN_FLAGS+=(--since-commit="${SINCE_COMMIT}")
+  fi
+  if [ "${TO_COMMIT}" ]; then
+    SCAN_FLAGS+=(--to-commit="${TO_COMMIT}")
+  fi
+  if [ "${FULL_HISTORY_SCAN}" ]; then
+    SCAN_FLAGS+=(--ignore-git-history-baseline="${FULL_HISTORY_SCAN}")
+  fi
+  if [ "${MAX_SECRETS}" ]; then
+    SCAN_FLAGS+=(--max-secret="${MAX_SECRETS}")
   fi
 }
 

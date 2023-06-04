@@ -1,5 +1,5 @@
-name: "Orca FS Scan"
-description: "Configures Orca CLI to run FS security scan on your code"
+name: "Orca Secrets Scan"
+description: "Configures Orca CLI to run secrets scan on your code"
 branding:
   icon: "shield"
   color: "green"
@@ -41,20 +41,22 @@ inputs:
     description: "Suppress error reporting to the monitoring platform"
     required: false
     default: "false"
-  disable_secret:
-    description: "Disables the secret detection scanning"
-    required: false
-    default: "false"
-  hide_vulnerabilities:
-    description: "Do not show detailed view of the vulnerabilities findings"
-    required: false
-    default: "false"
   num_cpu:
     description: "Number of logical CPUs to be used for secret scanning (default 10)"
     required: false
   path:
-    description: "Paths or directories to scan (comma-separated)"
+    description: "Path or directory to scan"
     required: true
+  disable_git_history_scan:
+    description: "Disable history scan"
+    required: false
+    default: "false"
+  since_commit:
+    description: "The commit to scan from"
+    required: false
+  to_commit:
+    description: "The commit to scan to"
+    required: false
   exceptions_filepath:
     description: "exceptions YAML filepath."
     required: false

@@ -101,6 +101,9 @@ function set_fs_scan_flags() {
   if [ "${CONSOLE_OUTPUT_FOR_JSON}" ]; then
     SCAN_FLAGS+=(--console-output="${CONSOLE_OUTPUT_FOR_JSON}")
   fi
+  if [ "${INPUT_CUSTOM_SECRET_CONTROLS}" ]; then
+    SCAN_FLAGS+=(--custom-secret-controls="${INPUT_CUSTOM_SECRET_CONTROLS}")
+  fi
 }
 
 function set_env_vars() {

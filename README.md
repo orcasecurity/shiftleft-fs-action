@@ -9,11 +9,15 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
 
 ## Table of Contents
 
-- [Usage](#usage)
+- [Orca Shift Left Security Action](#orca-shift-left-security-action)
+      - [More info can be found in the official Orca Shift Left Security documentation](#more-info-can-be-found-in-the-official-orca-shift-left-security-documentation)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
     - [Workflow](#workflow)
     - [Inputs](#inputs)
-- [Annotations](#annotations)
-- [Upload SARIF report](#upload-sarif-report)
+  - [Annotations](#annotations)
+  - [Upload SARIF report](#upload-sarif-report)
+
 
 
 ## Usage
@@ -68,6 +72,7 @@ jobs:
 | disable_secret          | true                                       | Disables the secret detection scanning                                            | Boolean | No       | false   |
 | exceptions_filepath     | n/a                                        | exceptions YAML filepath. (File should be mounted)                                | String  | No       | false   |
 | hide_vulnerabilities    | n/a                                        | do not show detailed view of the vulnerabilities findings                         | Boolean | No       | false   |
+| custom_secret_controls  | custom_rules.yaml                          | path to custom secret controls file                                               | String  | No       | N/A     |
 | num_cpu                 | 10                                         | Number of logical CPUs to be used for secret scanning (default 10)                | Integer | No       | 10      |
 | show_failed_issues_only | n/a                                        | show only failed issues                                                           | Boolean | No       | false   |
 

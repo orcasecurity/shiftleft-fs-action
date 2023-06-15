@@ -58,6 +58,9 @@ inputs:
   exceptions_filepath:
     description: "exceptions YAML filepath."
     required: false
+  custom_secret_controls:
+    description: "path to custom secret controls file."
+    required: false
   format:
     description: "Format for displaying the results"
     required: false

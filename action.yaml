@@ -1,5 +1,5 @@
-name: "Orca FS Scan"
-description: "Configures Orca CLI to run FS security scan on your code"
+name: "Orca Security - SCA / Secret Scanning"
+description: "Configures Orca CLI to run secret detection and/or vulnerabilities scanning"
 branding:
   icon: "shield"
   color: "green"

@@ -110,6 +110,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Orca FS Scan
+        id: orcasecurity
         uses: orcasecurity/shiftleft-fs-action@v1
         with:
           api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
@@ -120,7 +121,7 @@ jobs:
             "results/"
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        if: always()
+        if: ${{ steps.orcasecurity.outputs.exitcode != 1 }}
         with:
           sarif_file: results/file_system.sarif
 ```

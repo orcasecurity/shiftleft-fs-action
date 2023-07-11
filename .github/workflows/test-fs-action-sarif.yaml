@@ -25,6 +25,10 @@ jobs:
           output:
             "results/"
           console_output: "table"
+      - name: print exit code
+        run: |
+          echo "Exit code: ${{ steps.orcasecurity.outputs.exitcode }}"
+
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         if: ${{ steps.orcasecurity.outputs.exitcode != 1 }}

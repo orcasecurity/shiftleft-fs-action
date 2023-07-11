@@ -26,6 +26,7 @@ jobs:
             "results/"
           console_output: "table"
       - name: print exit code
+        if: always()  
         run: |
           echo "Exit code: ${{ steps.orcasecurity.outputs.exitcode }}"
 

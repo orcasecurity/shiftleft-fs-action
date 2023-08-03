@@ -27,8 +27,12 @@ jobs:
             "results/"
           console_output: "table"
 
+      - name: print output
+        if: always()
+        run: echo "${{ steps.orcasecurity.outputs.finished }}"
+
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        if: ${{ steps.orcasecurity.outputs.finished == 'true' }}
+        if: ${{ always() && steps.orcasecurity.outputs.finished == 'true' }}
         with:
           sarif_file: results/file_system.sarif

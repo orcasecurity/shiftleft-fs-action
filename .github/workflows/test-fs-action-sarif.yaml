@@ -19,7 +19,7 @@ jobs:
           project_key:
             "default"
           path:
-            "assets"
+            "test"
           format:
             "sarif"
           output:

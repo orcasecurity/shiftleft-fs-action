@@ -19,6 +19,8 @@ function run_orca_fs_scan() {
   else
     echo "finished=true" >> "$GITHUB_OUTPUT"
   fi
+
+    echo "exit_code=${ORCA_EXIT_CODE}" >>"$GITHUB_OUTPUT"
 }
 
 function set_global_flags() {

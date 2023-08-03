@@ -88,5 +88,7 @@ inputs:
     default: "true"
 
 outputs:
+    exit_code:
+        description: ""
     finished:
       description: "The status of the scan"

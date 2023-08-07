@@ -86,3 +86,7 @@ inputs:
     description: "show github annotations on pull requests"
     required: false
     default: "true"
+
+outputs:
+    exit_code:
+        description: "The exit code of the scan"

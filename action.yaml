@@ -86,7 +86,10 @@ inputs:
     description: "show github annotations on pull requests"
     required: false
     default: "true"
+  display_name:
+    description: "Scan log display name (on Orca platform)"
+    required: false
 
 outputs:
-    exit_code:
-        description: "The exit code of the scan"
+  exit_code:
+    description: "The exit code of the scan"

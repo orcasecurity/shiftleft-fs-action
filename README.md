@@ -65,7 +65,7 @@ jobs:
 | project_key             | my-project-key                             | Project Key name                                                                  | String  | Yes      | N/A     |
 | path                    | sub-dir                                    | Path to scan                                                                      | String  | Yes      | N/A     |
 | format                  | json                                       | Format for displaying the results                                                 | String  | No       | cli     |
-| output                  | results/                                   | Output directory for scan results                                                  | String  | No       | N/A     |
+| output                  | results/                                   | Output directory for scan results                                                 | String  | No       | N/A     |
 | no_color                | false                                      | Disable color output                                                              | Boolean | No       | false   |
 | exit_code               | 10                                         | Exit code for failed execution due to policy violations                           | Integer | No       | 3       |
 | control_timeout         | 30                                         | Number of seconds the control has to execute before being canceled                | Integer | No       | 60      |
@@ -79,7 +79,7 @@ jobs:
 | custom_secret_controls  | custom_rules.yaml                          | path to custom secret controls file                                               | String  | No       | N/A     |
 | num_cpu                 | 10                                         | Number of logical CPUs to be used for secret scanning (default 10)                | Integer | No       | 10      |
 | show_failed_issues_only | n/a                                        | show only failed issues                                                           | Boolean | No       | false   |
-
+| display_name            | custom-display-name                        | Scan log display name (on Orca platform)                                          | String  | No       | N/A     |
 
 ## Annotations
 After scanning, the action will add the results as annotations in a pull request:

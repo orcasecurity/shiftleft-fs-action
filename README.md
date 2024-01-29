@@ -59,27 +59,32 @@ jobs:
 
 ### Inputs
 
-| Variable                | Example Value &nbsp;                       | Description &nbsp;                                                                | Type    | Required | Default |
-|-------------------------|--------------------------------------------|-----------------------------------------------------------------------------------|---------|----------|---------|
-| api_token               |                                            | Orca API Token used for Authentication                                            | String  | Yes      | N/A     |
-| project_key             | my-project-key                             | Project Key name                                                                  | String  | Yes      | N/A     |
-| path                    | sub-dir                                    | Path to scan                                                                      | String  | Yes      | N/A     |
-| format                  | json                                       | Format for displaying the results                                                 | String  | No       | cli     |
-| output                  | results/                                   | Output directory for scan results                                                 | String  | No       | N/A     |
-| no_color                | false                                      | Disable color output                                                              | Boolean | No       | false   |
-| exit_code               | 10                                         | Exit code for failed execution due to policy violations                           | Integer | No       | 3       |
-| control_timeout         | 30                                         | Number of seconds the control has to execute before being canceled                | Integer | No       | 60      |
-| silent                  | false                                      | Disable logs and warnings output                                                  | Boolean | No       | false   |
-| console_output          | json                                       | Prints results to console in the provided format (only when --output is provided) | String  | No       | cli     |
-| config                  | config.json                                | path to configuration file (json, yaml or toml)                                   | String  | No       | N/A     |
-| show_annotations        | true                                       | show github annotations on pull requests                                          | Boolean | No       | true    |
-| disable_secret          | true                                       | Disables the secret detection scanning                                            | Boolean | No       | false   |
-| exceptions_filepath     | n/a                                        | exceptions YAML filepath. (File should be mounted)                                | String  | No       | false   |
-| hide_vulnerabilities    | n/a                                        | do not show detailed view of the vulnerabilities findings                         | Boolean | No       | false   |
-| custom_secret_controls  | custom_rules.yaml                          | path to custom secret controls file                                               | String  | No       | N/A     |
-| num_cpu                 | 10                                         | Number of logical CPUs to be used for secret scanning (default 10)                | Integer | No       | 10      |
-| show_failed_issues_only | n/a                                        | show only failed issues                                                           | Boolean | No       | false   |
-| display_name            | custom-display-name                        | Scan log display name (on Orca platform)                                          | String  | No       | N/A     |
+| Variable                     | Example Value &nbsp;         | Description &nbsp;                                                                         | Type    | Required | Default      |
+|------------------------------|------------------------------|--------------------------------------------------------------------------------------------|---------|----------|--------------|
+| api_token                    |                              | Orca API Token used for Authentication                                                     | String  | Yes      | N/A          |
+| project_key                  | my-project-key               | Project Key name                                                                           | String  | Yes      | N/A          |
+| path                         | sub-dir                      | Path to scan                                                                               | String  | Yes      | N/A          |
+| format                       | json                         | Format for displaying the results                                                          | String  | No       | cli          |
+| output                       | results/                     | Output directory for scan results                                                          | String  | No       | N/A          |
+| no_color                     | false                        | Disable color output                                                                       | Boolean | No       | false        |
+| exit_code                    | 10                           | Exit code for failed execution due to policy violations                                    | Integer | No       | 3            |
+| control_timeout              | 30                           | Number of seconds the control has to execute before being canceled                         | Integer | No       | 60           |
+| silent                       | false                        | Disable logs and warnings output                                                           | Boolean | No       | false        |
+| console_output               | json                         | Prints results to console in the provided format (only when --output is provided)          | String  | No       | cli          |
+| config                       | config.json                  | path to configuration file (json, yaml or toml)                                            | String  | No       | N/A          |
+| show_annotations             | true                         | show github annotations on pull requests                                                   | Boolean | No       | true         |
+| disable_secret               | true                         | Disables the secret detection scanning                                                     | Boolean | No       | false        |
+| exceptions_filepath          | n/a                          | exceptions YAML filepath. (File should be mounted)                                         | String  | No       | false        |
+| hide_vulnerabilities         | n/a                          | do not show detailed view of the vulnerabilities findings                                  | Boolean | No       | false        |
+| custom_secret_controls       | custom_rules.yaml            | path to custom secret controls file                                                        | String  | No       | N/A          |
+| num_cpu                      | 10                           | Number of logical CPUs to be used for secret scanning (default 10)                         | Integer | No       | 10           |
+| show_failed_issues_only      | n/a                          | show only failed issues                                                                    | Boolean | No       | false        |
+| display_name                 | custom-display-name          | Scan log display name (on Orca platform)                                                   | String  | No       | N/A          |
+| hide_skipped_vulnerabilities | false                        | Filter out skipped vulnerabilities from result                                             | Boolean | No       | false        |
+| exclude_paths                | ./notToBeScanned/,example.tf | List of paths to be excluded from scan (comma-separated)                                   | String  | No       | N/A          |
+| max_secret                   | 10                           | Set the maximum secrets that can be found, when reaching this number secret scan will stop | Integer | No       | 10000        |
+| dependency_tree              | false                        | Show dependency origin tree of vulnerable packages                                         | Boolean | No       | false        |
+| security_checks              | secret                       | List of security issues to detect (comma-separated)                                        | String  | No       | vulns,secret |
 
 ## Annotations
 After scanning, the action will add the results as annotations in a pull request:

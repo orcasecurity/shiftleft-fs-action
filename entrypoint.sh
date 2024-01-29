@@ -109,6 +109,21 @@ function set_fs_scan_flags() {
   if [ "${INPUT_CUSTOM_SECRET_CONTROLS}" ]; then
     SCAN_FLAGS+=(--custom-secret-controls="${INPUT_CUSTOM_SECRET_CONTROLS}")
   fi
+  if [ "${INPUT_HIDE_SKIPPED_VULNERABILITIES}" == "true"  ]; then
+    SCAN_FLAGS+=(--hide-skipped-vulnerabilities)
+  fi
+  if [ "${INPUT_MAX_SECRET}" ]; then
+    SCAN_FLAGS+=(--max-secret "${INPUT_MAX_SECRET}")
+  fi
+  if [ "${INPUT_EXCLUDE_PATHS}" ]; then
+    SCAN_FLAGS+=(--exclude-paths "${INPUT_EXCLUDE_PATHS}")
+  fi
+  if [ "${INPUT_DEPENDENCY_TREE}" == "true" ]; then
+    SCAN_FLAGS+=(--dependency-tree)
+  fi
+  if [ "${INPUT_SECURITY_CHECKS}" ]; then
+    SCAN_FLAGS+=(--security-checks "${INPUT_SECURITY_CHECKS}")
+  fi
 }
 
 function set_env_vars() {

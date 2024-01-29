@@ -89,6 +89,25 @@ inputs:
   display_name:
     description: "Scan log display name (on Orca platform)"
     required: false
+  hide_skipped_vulnerabilities:
+    description: "filter out skipped vulnerabilities from result"
+    required: false
+    default: "false"
+  max_secret:
+    description: "Set the maximum secrets that can be found, when reaching this number secret scan will stop"
+    required: false
+  exclude_paths:
+    description: "List of paths to be excluded from scan (comma-separated). Example: './notToBeScanned/,example.tf'"
+    required: false
+  dependency_tree:
+    description: "Show dependency origin tree of vulnerable packages"
+    required: false
+    default: "false"
+  security_checks:
+    description: "List of security issues to detect (comma-separated)"
+    required: false
+    default: "vulns,secret"
+
 
 outputs:
   exit_code:

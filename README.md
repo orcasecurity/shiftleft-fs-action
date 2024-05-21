@@ -85,6 +85,8 @@ jobs:
 | max_secret                   | 10                           | Set the maximum secrets that can be found, when reaching this number secret scan will stop | Integer | No       | 10000        |
 | dependency_tree              | false                        | Show dependency origin tree of vulnerable packages                                         | Boolean | No       | false        |
 | security_checks              | secret                       | List of security issues to detect (comma-separated)                                        | String  | No       | vulns,secret |
+| debug                        | true                         | Debug mode                                                                                 | Boolean | No       | false        |
+| log_path                     | results/                     | The directory path to specify where the logs should be written to on debug mode.           | String  | No       | working dir  |
 
 ## Annotations
 After scanning, the action will add the results as annotations in a pull request:

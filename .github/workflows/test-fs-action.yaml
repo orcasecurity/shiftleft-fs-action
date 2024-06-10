@@ -7,22 +7,17 @@ jobs:
   fs_scan_job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # ratchet:actions/checkout@v4
       - name: Scan FS
         uses: ./
         with:
-          api_token:
-            ${{ secrets.ORCA_SECURITY_API_TOKEN }}
-          project_key:
-            "default"
-          path:
-            "test"
-          format:
-            "json"
-          output:
-            "results/"
+          api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key: "default"
+          path: "test"
+          format: "json"
+          output: "results/"
           console_output: "table"
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # ratchet:actions/upload-artifact@v4
         if: always()
         with:
           name: orca-results

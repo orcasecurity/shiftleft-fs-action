@@ -45,7 +45,7 @@ jobs:
     steps:
       # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run Orca FS Scan
         uses: orcasecurity/shiftleft-fs-action@v1
@@ -118,7 +118,7 @@ jobs:
       PROJECT_KEY: <project key> # Set the desired project to run the cli scanning with
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run Orca FS Scan
         id: orcasecurity_fs_scan
@@ -131,7 +131,7 @@ jobs:
           output:
             "results/"
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         if: ${{ always() && steps.orcasecurity_fs_scan.outputs.exit_code != 1 }}
         with:
           sarif_file: results/file_system.sarif

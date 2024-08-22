@@ -87,6 +87,7 @@ jobs:
 | security_checks              | secret                       | List of security issues to detect (comma-separated)                                        | String  | No       | vulns,secret |
 | debug                        | true                         | Debug mode                                                                                 | Boolean | No       | false        |
 | log_path                     | results/                     | The directory path to specify where the logs should be written to on debug mode.           | String  | No       | working dir  |
+| disable_active_verification  | true                         | Disable active verification of secrets                                                     | Boolean | No       | false        |
 
 ## Annotations
 After scanning, the action will add the results as annotations in a pull request:

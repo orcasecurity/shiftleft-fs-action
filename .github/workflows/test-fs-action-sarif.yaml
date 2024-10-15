@@ -24,4 +24,4 @@ jobs:
         uses: github/codeql-action/upload-sarif@2e230e8fe0ad3a14a340ad0815ddb96d599d2aff # ratchet:github/codeql-action/upload-sarif@v3
         if: ${{ always() && steps.orcasecurity_fs_scan.outputs.exit_code != 1 }}
         with:
-          sarif_file: results/file_system.sarif
+          sarif_file: results/file_system.sarif# TODO: Need to fix the workflow

@@ -27,16 +27,6 @@ inputs:
     description: "Disable logs and warnings output"
     required: false
     default: "false"
-  baseline_context_key:
-    description: "Use this context key in case of no autodetect is configured on project"
-    required: false
-  disable_baseline:
-    description: "Do not compare to baseline on this scan"
-    required: false
-    default: "false"
-  sync_baseline:
-    description: "Sync baseline base on this flag"
-    required: false
   disable_err_report:
     description: "Suppress error reporting to the monitoring platform"
     required: false
@@ -118,7 +108,6 @@ inputs:
   log_path:
     description: "The directory path to specify where the logs should be written to on debug mode. Default to the current working directory"
     required: false
-
 
 outputs:
   exit_code:

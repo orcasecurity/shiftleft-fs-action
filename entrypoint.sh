@@ -33,20 +33,11 @@ function set_global_flags() {
   if [ "${INPUT_CONFIG}" ]; then
     GLOBAL_FLAGS+=(--config "${INPUT_CONFIG}")
   fi
-  if [ "${INPUT_BASELINE_CONTEXT_KEY}" ]; then
-    GLOBAL_FLAGS+=(--baseline-context-key "${INPUT_BASELINE_CONTEXT_KEY}")
-  fi
-  if [ "${INPUT_DISABLE_BASELINE}" == "true" ]; then
-    GLOBAL_FLAGS+=(--disable-baseline)
-  fi
   if [ "${INPUT_DISABLE_ERR_REPORT}" == "true" ]; then
     GLOBAL_FLAGS+=(--disable-err-report)
   fi
-  if [ "${INPUT_SYNC_BASELINE}" ]; then
-    GLOBAL_FLAGS+=(--sync-baseline "${INPUT_SYNC_BASELINE}")
-  fi
   if [ "${INPUT_DISPLAY_NAME}" ]; then
-    GLOBAL_FLAGS+=(--display-name="${INPUT_DISPLAY_NAME}")
+    GLOBAL_FLAGS+=(--display-name "${INPUT_DISPLAY_NAME}")
   fi
   if [ "${INPUT_DEBUG}" == "true" ]; then
     GLOBAL_FLAGS+=(--debug)
@@ -97,6 +88,9 @@ function set_fs_scan_flags() {
   if [ "${INPUT_EXCEPTIONS_FILEPATH}" ]; then
     SCAN_FLAGS+=(--exceptions-filepath "${INPUT_EXCEPTIONS_FILEPATH}")
   fi
+  if [ "${INPUT_TIMEOUT}" ]; then
+    SCAN_FLAGS+=(--timeout "${INPUT_TIMEOUT}")
+  fi
   if [ "${INPUT_SHOW_FAILED_ISSUES_ONLY}" = "true" ]; then
     SCAN_FLAGS+=(--show-failed-issues-only)
   fi
@@ -116,7 +110,7 @@ function set_fs_scan_flags() {
     SCAN_FLAGS+=(--console-output="${CONSOLE_OUTPUT_FOR_JSON}")
   fi
   if [ "${INPUT_CUSTOM_SECRET_CONTROLS}" ]; then
-    SCAN_FLAGS+=(--custom-secret-controls="${INPUT_CUSTOM_SECRET_CONTROLS}")
+    SCAN_FLAGS+=(--custom-secret-controls "${INPUT_CUSTOM_SECRET_CONTROLS}")
   fi
   if [ "${INPUT_HIDE_SKIPPED_VULNERABILITIES}" == "true"  ]; then
     SCAN_FLAGS+=(--hide-skipped-vulnerabilities)

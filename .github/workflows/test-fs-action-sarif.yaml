@@ -5,7 +5,7 @@ on:
 
 jobs:
   fs_scan_job:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       security-events: write
     steps:
